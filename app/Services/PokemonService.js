@@ -15,6 +15,9 @@ let _pokeApi = axios.create({
 })
 
 class PokemonService {
+  catchAsync() {
+    
+  }
    async selectPokemonAsync(name) {
 let res = await _pokeApi.get(name);
 console.log("from select Pokemon res", res);

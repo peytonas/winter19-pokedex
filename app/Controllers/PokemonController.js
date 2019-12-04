@@ -35,4 +35,14 @@ export default class PokemonController {
     
   }
  }
+ async catchAsync(){
+try{
+  await PokemonService.catchAsync()
+
+}catch(error){
+  debugger;
+  console.error(error)
+}
+
+ }
 }
