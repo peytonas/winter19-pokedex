@@ -18,8 +18,8 @@ class PokemonService {
   async catchAsync() {
     let activePokemon = store.State.activePokemon; 
     let res = await _sandbox.post("", activePokemon); 
-    console.log("from catchAsycn", res); 
-    store.commit("caughtPokemon", activePokemon)
+    console.log("from catchAsycn", res);
+    this.getMyPokemonAsync() 
     console.log("from store ", store.State.caughtPokemon);
     
   }
@@ -27,6 +27,7 @@ class PokemonService {
   async getMyPokemonAsync() {
     let res = await _sandbox.get("");
     store.commit("caughtPokemon", res.data.data)
+    console.log("caught pokemon", res.data.data);
     
     
 
