@@ -32,6 +32,7 @@ export default class PokemonController {
     store.subscribe("caughtPokemon", _drawCaptured)
     _drawPokemon();
     PokemonService.getWildPokemonAsync();
+    this.getMyPokemonAsync();
     console.log("hello from controller")
   }
  async selectPokemonAsync(name){
@@ -43,6 +44,18 @@ export default class PokemonController {
     
   }
  }
+
+
+ async getMyPokemonAsync() {
+   try {
+     await PokemonService.getMyPokemonAsync();
+   } catch (error) {
+    debugger;
+    console.error(error);
+    
+  }
+ }
+
  async catchAsync(){
 try{
   await PokemonService.catchAsync()

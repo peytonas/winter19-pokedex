@@ -3,8 +3,9 @@ import Pokemon from "./Models/Pokemon.js";
 let _state = {
   activePokemon:{},
   /** @type {Pokemon[]} */
-  pokemon: [],
-  caughtPokemon: []
+  pokemon: [], //Api Pokemon
+  /** @type {Pokemon[]} */
+  caughtPokemon: [] //Sandbox Pokemon
 };
 
 /** Collection of listeners to be called based on keyed state changes

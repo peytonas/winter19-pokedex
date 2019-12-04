@@ -23,6 +23,16 @@ class PokemonService {
     console.log("from store ", store.State.caughtPokemon);
     
   }
+
+  async getMyPokemonAsync() {
+    let res = await _sandbox.get("");
+    store.commit("caughtPokemon", res.data.data)
+    
+    
+
+  }
+
+
    async selectPokemonAsync(name) {
 let res = await _pokeApi.get(name);
 console.log("from select Pokemon res", res);
