@@ -50,7 +50,7 @@ export default class PokemonController {
  }
  async releaseAsync(){
    try {
-     PokemonService.release
+     await PokemonService.releaseAsync();
    } catch (error) {
      debugger
      console.error(error)
