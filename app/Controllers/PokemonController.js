@@ -46,7 +46,15 @@ export default class PokemonController {
  }
 
  selectCaughtPokemon(id){
-
+   PokemonService.selectCaughtPokemon(id);
+ }
+ async releaseAsync(){
+   try {
+     PokemonService.release
+   } catch (error) {
+     debugger
+     console.error(error)
+   }
  }
 
  async getMyPokemonAsync() {

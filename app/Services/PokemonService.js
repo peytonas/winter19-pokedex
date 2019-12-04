@@ -15,6 +15,11 @@ let _pokeApi = axios.create({
 })
 
 class PokemonService {
+  selectCaughtPokemon(id) {
+    let caughtPokemon=store.State.caughtPokemon.find(elem=>elem._id==id);
+    console.log(caughtPokemon);
+    store.commit("activePokemon",caughtPokemon)
+  }
   async catchAsync() {
     let activePokemon = store.State.activePokemon; 
     let res = await _sandbox.post("", activePokemon); 
