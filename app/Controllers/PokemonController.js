@@ -21,7 +21,13 @@ export default class PokemonController {
     PokemonService.getWildPokemonAsync();
     console.log("hello from controller")
   }
- selectPokemon(){
-   
+ async selectPokemonAsync(name){
+  try {
+    await PokemonService.selectPokemonAsync(name);
+  } catch (error) {
+    debugger;
+    console.error(error);
+    
+  }
  }
 }
