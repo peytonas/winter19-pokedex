@@ -13,7 +13,11 @@ function _drawPokemon() {
 
 function _drawActivePokemon() {
   let pokemon = store.State.activePokemon;
-  document.getElementById('card').innerHTML = pokemon.Template
+  if(pokemon._id){
+    document.getElementById('card').innerHTML = pokemon.Template
+    return
+  }
+  document.getElementById("card").innerHTML = ""
 }
 
 function _drawCaptured (){
