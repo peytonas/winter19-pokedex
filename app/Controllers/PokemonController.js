@@ -16,7 +16,12 @@ function _drawActivePokemon() {
   document.getElementById('card').innerHTML = pokemon.Template
 }
 
-function _drawCaptured (){}
+function _drawCaptured (){
+  let template = "";
+  let caughtPokemon = store.State.caughtPokemon;
+  caughtPokemon.forEach(cur => template+= `<li onclick="app.pokemonController.selectPokemonAsync('${cur.name}')">${cur.name}</li>`)
+  document.getElementById('caught').innerHTML = template;
+}
 
 
 //Public
