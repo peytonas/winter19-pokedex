@@ -18,6 +18,7 @@ export default class PokemonController {
   constructor() {
     store.subscribe("pokemon", _drawPokemon);
     _drawPokemon();
+    PokemonService.getWildPokemonAsync();
     console.log("hello from controller")
   }
   find () {}
