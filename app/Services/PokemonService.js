@@ -15,8 +15,10 @@ let _pokeApi = axios.create({
 })
 
 class PokemonService {
-  catchAsync() {
-    
+  async catchAsync() {
+    let activePokemon = store.State.activePokemon; 
+    let res = await _sandbox.post("", activePokemon); 
+    console.log("from catchAsycn", res); 
   }
    async selectPokemonAsync(name) {
 let res = await _pokeApi.get(name);

@@ -16,6 +16,8 @@ function _drawActivePokemon() {
   document.getElementById('card').innerHTML = pokemon.Template
 }
 
+function _drawCaptured ()
+
 
 //Public
 export default class PokemonController {
