@@ -1,6 +1,7 @@
 import Pokemon from "./Models/Pokemon.js";
 
 let _state = {
+  activePokemon:{},
   /** @type {Pokemon[]} */
   pokemon: []
 };
@@ -9,7 +10,7 @@ let _state = {
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
-
+  activePokemon:[],
   pokemon: []
 };
 

@@ -11,5 +11,7 @@ function _drawPokemon() {
 export default class PokemonController {
   constructor() {
     store.subscribe("pokemon", _drawPokemon);
+    console.log("hello from controller")
   }
+  find () {}
 }
