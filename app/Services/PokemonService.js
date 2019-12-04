@@ -1,5 +1,6 @@
 import Store from "../store.js";
 import store from "../store.js";
+import Pokemon from "../Models/Pokemon.js";
 
 // @ts-ignore
 let _sandbox = axios.create({
@@ -17,7 +18,9 @@ class PokemonService {
    async selectPokemonAsync(name) {
 let res = await _pokeApi.get(name);
 console.log("from select Pokemon res", res);
-let theActivePokemon = res.data;
+let theActivePokemon = new Pokemon(res.data);
+store.commit("activePokemon", theActivePokemon);
+console.log("from store", store.State.activePokemon);
 
   }  
   async getWildPokemonAsync(){
