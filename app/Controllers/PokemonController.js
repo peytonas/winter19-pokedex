@@ -28,7 +28,8 @@ function _drawCaptured (){
 export default class PokemonController {
   constructor() {
     store.subscribe("pokemon", _drawPokemon);
-    store.subscribe("activePokemon", _drawActivePokemon);
+    store.subscribe("activePokemon", _drawActivePokemon)
+    store.subscribe("caughtPokemon", _drawCaptured)
     _drawPokemon();
     PokemonService.getWildPokemonAsync();
     console.log("hello from controller")
