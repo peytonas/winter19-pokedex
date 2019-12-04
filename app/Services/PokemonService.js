@@ -10,8 +10,10 @@ let _pokeApi = axios.create({
   timeout:3000
 })
 
-class PokemonService {
-
+class PokemonService {  
+  async getWildPokemonAsync(){
+    
+  }
   constructor(){
     console.log("hello from service")
   }

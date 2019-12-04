@@ -5,7 +5,9 @@ import store from "../store.js";
 function _drawPokemon() {
   let template= "";
   let pokemon = store.State.pokemon;
+  // NOTE  these are all POJO's since there isnt much data and so we create our template here! 
   pokemon.forEach(cur => template+= `<li>${cur.name}</li>`)
+  document.getElementById('pokemon-list').innerHTML = template
   console.log(pokemon);
 }
 
@@ -15,6 +17,7 @@ function _drawPokemon() {
 export default class PokemonController {
   constructor() {
     store.subscribe("pokemon", _drawPokemon);
+    _drawPokemon();
     console.log("hello from controller")
   }
   find () {}
