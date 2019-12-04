@@ -3,7 +3,8 @@ import Pokemon from "./Models/Pokemon.js";
 let _state = {
   activePokemon:{},
   /** @type {Pokemon[]} */
-  pokemon: []
+  pokemon: [],
+  caughtPokemon: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -11,7 +12,8 @@ let _state = {
  */
 let _listeners = {
   activePokemon:[],
-  pokemon: []
+  pokemon: [],
+  caughtPokemon: []
 };
 
 //NOTE You should not need to change the code from this point down

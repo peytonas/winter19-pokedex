@@ -19,6 +19,9 @@ class PokemonService {
     let activePokemon = store.State.activePokemon; 
     let res = await _sandbox.post("", activePokemon); 
     console.log("from catchAsycn", res); 
+    store.commit("caughtPokemon", activePokemon)
+    console.log("from store ", store.State.caughtPokemon);
+    
   }
    async selectPokemonAsync(name) {
 let res = await _pokeApi.get(name);
