@@ -26,8 +26,8 @@ class PokemonService {
 
   async getMyPokemonAsync() {
     let res = await _sandbox.get("");
-    store.commit("caughtPokemon", res.data.data)
-    console.log("caught pokemon", res.data.data);
+    store.commit("caughtPokemon", res.data.data.map(pokemonData => new Pokemon(pokemonData))) // this takes pokemon pojos and turns them into pokemon
+    console.log("caught pokemon", store.State.caughtPokemon);
     
     
 
