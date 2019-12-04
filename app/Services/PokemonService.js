@@ -13,15 +13,19 @@ let _pokeApi = axios.create({
   timeout:3000
 })
 
-class PokemonService {  
+class PokemonService {
+   async selectPokemonAsync(name) {
+let res = await _pokeApi.get(name);
+console.log("from select Pokemon res", res);
+let theActivePokemon = res.data;
+
+  }  
   async getWildPokemonAsync(){
     let res = await _pokeApi.get('')
-    console.log("from api", res.data.results);
     store.commit("pokemon", res.data.results)
-    console.log("from store", store.State.pokemon)
+  
   }
   constructor(){
-    console.log("hello from service")
   }
 }
 
