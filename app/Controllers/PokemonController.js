@@ -11,12 +11,17 @@ function _drawPokemon() {
   console.log(pokemon);
 }
 
+function _drawActivePokemon() {
+  let pokemon = store.State.activePokemon;
+  document.getElementById('card').innerHTML = pokemon.Template
+}
 
 
 //Public
 export default class PokemonController {
   constructor() {
     store.subscribe("pokemon", _drawPokemon);
+    store.subscribe("activePokemon", _drawActivePokemon);
     _drawPokemon();
     PokemonService.getWildPokemonAsync();
     console.log("hello from controller")
