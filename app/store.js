@@ -1,7 +1,7 @@
 import Pokemon from "./Models/Pokemon.js";
 
 let _state = {
-  activePokemon:{},
+  activePokemon: {},
   /** @type {Pokemon[]} */
   pokemon: [], //Api Pokemon
   /** @type {Pokemon[]} */
@@ -12,7 +12,7 @@ let _state = {
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
-  activePokemon:[],
+  activePokemon: [],
   pokemon: [],
   caughtPokemon: []
 };
