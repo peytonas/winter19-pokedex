@@ -10,7 +10,7 @@ let _sandbox = axios.create({
 
 // @ts-ignore
 let _pokeApi = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2/pokemon/?limit=60',
+  baseURL: 'https://pokeapi.co/api/v2/pokemon/',
   timeout: 3000
 })
 

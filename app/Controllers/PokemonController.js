@@ -22,7 +22,6 @@ function _drawCaptured() {
   document.getElementById('caught').innerHTML = template;
 }
 
-
 //Public
 export default class PokemonController {
   constructor() {
@@ -33,6 +32,7 @@ export default class PokemonController {
     PokemonService.getWildPokemonAsync();
     this.getMyPokemonAsync();
   }
+
   async selectPokemonAsync(name) {
     try {
       await PokemonService.selectPokemonAsync(name);
@@ -57,9 +57,7 @@ export default class PokemonController {
     try {
       await PokemonService.getMyPokemonAsync();
     } catch (error) {
-      debugger;
       console.error(error);
-
     }
   }
 
@@ -67,9 +65,7 @@ export default class PokemonController {
     try {
       await PokemonService.catchAsync()
     } catch (error) {
-      debugger;
       console.error(error)
     }
-
   }
 }
