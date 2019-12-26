@@ -5,7 +5,8 @@ let _state = {
   /** @type {Pokemon[]} */
   pokemon: [], //Api Pokemon
   /** @type {Pokemon[]} */
-  caughtPokemon: [] //Sandbox Pokemon
+  caughtPokemon: [], //Sandbox Pokemon
+  page: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -14,7 +15,8 @@ let _state = {
 let _listeners = {
   activePokemon: [],
   pokemon: [],
-  caughtPokemon: []
+  caughtPokemon: [],
+  page: []
 };
 
 //NOTE You should not need to change the code from this point down

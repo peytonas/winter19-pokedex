@@ -1,4 +1,3 @@
-import Store from "../store.js";
 import store from "../store.js";
 import Pokemon from "../Models/Pokemon.js";
 
@@ -10,9 +9,11 @@ let _sandbox = axios.create({
 
 // @ts-ignore
 let _pokeApi = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2/pokemon/',
+  baseURL: 'https://pokeapi.co/api/v2/pokemon',
   timeout: 3000
 })
+
+let page = 0;
 
 class PokemonService {
   async releaseAsync() {
@@ -37,10 +38,27 @@ class PokemonService {
     let res = await _pokeApi.get(name);
     let theActivePokemon = new Pokemon(res.data);
     store.commit("activePokemon", theActivePokemon);
+    console.log(theActivePokemon);
+
   }
   async getWildPokemonAsync() {
-    let res = await _pokeApi.get('')
+    let res = await _pokeApi.get("")
     store.commit("pokemon", res.data.results)
+  }
+
+  async next() {
+    page += page >= 20 ? 0 : 20
+    let res = await _pokeApi.get("?limit=20&offset=" + page)
+    page += 20;
+    store.commit("pokemon", res.data.results)
+    store.commit("page", page)
+  }
+  async previous() {
+    page = page <= 20 ? 20 : page
+    page -= 20;
+    let res = await _pokeApi.get("?limit=20&offset=" + page)
+    store.commit("pokemon", res.data.results)
+    store.commit("page", page)
   }
   constructor() {
   }

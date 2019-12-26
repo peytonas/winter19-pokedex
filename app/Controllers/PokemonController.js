@@ -32,7 +32,24 @@ export default class PokemonController {
     PokemonService.getWildPokemonAsync();
     this.getMyPokemonAsync();
   }
-
+  async next() {
+    try {
+      store.subscribe("pokemon", _drawPokemon);
+      await PokemonService.next()
+      _drawPokemon();
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  async previous() {
+    try {
+      store.subscribe("pokemon", _drawPokemon);
+      await PokemonService.previous()
+      _drawPokemon();
+    } catch (error) {
+      console.error(error)
+    }
+  }
   async selectPokemonAsync(name) {
     try {
       await PokemonService.selectPokemonAsync(name);
@@ -48,7 +65,6 @@ export default class PokemonController {
     try {
       await PokemonService.releaseAsync();
     } catch (error) {
-      debugger
       console.error(error)
     }
   }
