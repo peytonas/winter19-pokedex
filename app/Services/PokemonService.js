@@ -9,7 +9,7 @@ let _sandbox = axios.create({
 
 // @ts-ignore
 let _pokeApi = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2/pokemon',
+  baseURL: 'https://pokeapi.co/api/v2/pokemon/',
   timeout: 3000
 })
 
@@ -18,8 +18,8 @@ let page = 0;
 class PokemonService {
   async releaseAsync() {
     let res = await _sandbox.delete(store.State.activePokemon._id);
-    this.getMyPokemonAsync();
     store.commit("activePokemon", {});
+    this.getMyPokemonAsync();
   }
   selectCaughtPokemon(id) {
     let caughtPokemon = store.State.caughtPokemon.find(elem => elem._id == id);
@@ -42,8 +42,9 @@ class PokemonService {
 
   }
   async getWildPokemonAsync() {
-    let res = await _pokeApi.get("")
+    let res = await _pokeApi.get("?limit=20&offset=" + page)
     store.commit("pokemon", res.data.results)
+    store.commit("page", page)
   }
 
   async next() {
@@ -59,8 +60,6 @@ class PokemonService {
     let res = await _pokeApi.get("?limit=20&offset=" + page)
     store.commit("pokemon", res.data.results)
     store.commit("page", page)
-  }
-  constructor() {
   }
 }
 

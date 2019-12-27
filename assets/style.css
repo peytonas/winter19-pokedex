@@ -1,0 +1,33 @@
+.overflow {
+  overflow: scroll;
+  height: 420px;
+}
+
+.bg {
+  background-color: #e71d23;
+ }
+
+ .card {
+  border: 3px solid #333940
+ }
+
+@font-face {
+  font-family: 'pokemon';
+  src: URL('pokemon.ttf') format('truetype');
+}
+
+.font {
+  font-family: 'pokemon';
+  font-size: 85px;
+  color: yellow;
+  text-shadow: -5px 0 #3661a7, 0 5px #3661a7, 5px 0 #3661a7, 0 -5px #3661a7;
+}
+
+ .border {
+   border: 3px solid white
+ }
+
+ button:active {
+    outline: none;
+    border: none;
+}

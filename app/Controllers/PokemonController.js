@@ -6,7 +6,7 @@ function _drawPokemon() {
   let template = "";
   let pokemon = store.State.pokemon;
   // NOTE  these are all POJO's since there isnt much data and so we create our template here! 
-  pokemon.forEach(cur => template += `<li onclick="app.pokemonController.selectPokemonAsync('${cur.name}')">${cur.name}</li>`)
+  pokemon.forEach(cur => template += `<h5 onclick="app.pokemonController.selectPokemonAsync('${cur.name}')">${cur.name}</h5>`)
   document.getElementById('pokemon-list').innerHTML = template
 }
 
@@ -18,7 +18,7 @@ function _drawActivePokemon() {
 function _drawCaptured() {
   let template = "";
   let caughtPokemon = store.State.caughtPokemon;
-  caughtPokemon.forEach(cur => template += `<li onclick="app.pokemonController.selectCaughtPokemon('${cur._id}')">${cur.name}</li>`)
+  caughtPokemon.forEach(cur => template += `<h5 onclick="app.pokemonController.selectCaughtPokemon('${cur._id}')">${cur.name}</h5>`)
   document.getElementById('caught').innerHTML = template;
 }
 
@@ -57,7 +57,6 @@ export default class PokemonController {
       console.error(error);
     }
   }
-
   selectCaughtPokemon(id) {
     PokemonService.selectCaughtPokemon(id);
   }
@@ -68,7 +67,6 @@ export default class PokemonController {
       console.error(error)
     }
   }
-
   async getMyPokemonAsync() {
     try {
       await PokemonService.getMyPokemonAsync();
@@ -76,7 +74,6 @@ export default class PokemonController {
       console.error(error);
     }
   }
-
   async catchAsync() {
     try {
       await PokemonService.catchAsync()

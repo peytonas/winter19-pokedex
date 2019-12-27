@@ -11,29 +11,33 @@
     <title>Document</title>
 </head>
 
-<body class="container-fluid">
+<body class="container-fluid bg">
     <div class="row justify-content-center">
-        <div class="col-2">
-            <h1>Pokedex</h1>
+        <div class="col-3 text-center">
+            <h1 class="font mt-4">Pokedex</h1>
         </div>
     </div>
-    <div class="row justify-content-between">
-        <div class="col-3 text-left card">
+    <div class="row justify-content-between ml-1 mr-1">
+        <div class="col-3 card text-left">
             <h1>Wild Pokemon</h1>
-            <ol id="pokemon-list">
+            <ol id="pokemon-list" class="text-left overflow">
 
             </ol>
-            <button onclick="app.pokemonController.previous()">previous</button>
-            <button onclick="app.pokemonController.next()">next</button>
         </div>
-        <div class="col-3 text-center overflow" id="card">
+        <div class="col-3 text-center" id="card">
 
         </div>
-        <div class="col-4 card">
-            <h1>Caught Pokemon</h1>
-            <ol id="caught" class="text-left">
+        <div class="col-3 card text-left">
+            <h1>Your Pokemon</h1>
+            <ol id="caught" class="text-left overflow">
 
             </ol>
+        </div>
+    </div>
+    <div class="row justify-content-left">
+        <div class="col-3 mt-1 text-center">
+            <button class="btn btn-primary" onclick="app.pokemonController.previous()">previous</button>
+            <button class="btn btn-primary" onclick="app.pokemonController.next()">next</button>
         </div>
     </div>
 
@@ -43,8 +47,3 @@
 </body>
 
 </html>
-<style>
-    .overflow {
-        overflow: scroll;
-    }
-</style>
