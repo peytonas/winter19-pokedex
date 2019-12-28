@@ -5,21 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="assets/pokedex.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
+    <title>pokédex</title>
 </head>
 
 <body class="container-fluid bg">
-    <div class="row justify-content-center">
-        <div class="col-3 text-center">
-            <h1 class="font mt-4">Pokedex</h1>
+    <div class="row justify-content-left">
+        <div class="col-1">
+            <img class="button" src="https://webstockreview.net/images/button-clipart-blue-button.png" alt="button">
+        </div>
+        <div class="col-3">
+            <form onsubmit="app.pokemonController.search">
+                <div class="input-group mt-1">
+                    <input type="text" class="form-control" id="search" placeholder="search..." required />
+                </div>
+                <button class="btn btn-primary mt-1" type="submit">submit</button>
+            </form>
+        </div>
+        <div class="col-4 text-center">
+            <h1 class="font mt-4">Pokédex</h1>
         </div>
     </div>
     <div class="row justify-content-between ml-1 mr-1">
         <div class="col-3 card text-left">
-            <h1>Wild Pokemon</h1>
+            <h1>Wild Pokémon</h1>
             <ol id="pokemon-list" class="text-left overflow">
 
             </ol>
@@ -28,7 +40,7 @@
 
         </div>
         <div class="col-3 card text-left">
-            <h1>Your Pokemon</h1>
+            <h1>Your Pokémon</h1>
             <ol id="caught" class="text-left overflow">
 
             </ol>

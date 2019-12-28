@@ -1,6 +1,21 @@
+
+::-webkit-scrollbar {
+  -webkit-appearance: auto;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.3);
+}
+
+.button {
+  height: 100px;
+  width: auto;
+}
+
 .overflow {
   overflow: scroll;
-  height: 420px;
+  height: 435px;
 }
 
 .bg {
@@ -18,7 +33,7 @@
 
 .font {
   font-family: 'pokemon';
-  font-size: 85px;
+  font-size: 80px;
   color: yellow;
   text-shadow: -5px 0 #3661a7, 0 5px #3661a7, 5px 0 #3661a7, 0 -5px #3661a7;
 }

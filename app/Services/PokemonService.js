@@ -42,26 +42,32 @@ class PokemonService {
 
   }
   async getWildPokemonAsync() {
-    let res = await _pokeApi.get("?limit=20&offset=" + page)
+    let res = await _pokeApi.get("?limit=13")
     store.commit("pokemon", res.data.results)
     store.commit("page", page)
   }
 
   async next() {
-    page += page >= 20 ? 0 : 20
-    let res = await _pokeApi.get("?limit=20&offset=" + page)
-    page += 20;
+    page += 13
+    let res = await _pokeApi.get("?limit=13&offset=" + page)
+    // page += 13;
     store.commit("pokemon", res.data.results)
     store.commit("page", page)
   }
   async previous() {
-    page = page <= 20 ? 20 : page
-    page -= 20;
-    let res = await _pokeApi.get("?limit=20&offset=" + page)
+    page = (page <= 13 ? 13 : page)
+    page -= 13;
+    let res = await _pokeApi.get("?limit=13&offset=" + page)
     store.commit("pokemon", res.data.results)
     store.commit("page", page)
   }
+  async search(name) {
+    debugger
+    let res = await _pokeApi.get(name)
+    store.commit("pokemon", res.data.results)
+  }
 }
+
 
 const service = new PokemonService();
 export default service;
