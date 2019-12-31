@@ -1,14 +1,41 @@
-
 ::-webkit-scrollbar {
   -webkit-appearance: auto;
   width: 7px;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(0,0,0,.3);
 }
 
 .button {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #3661a7;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px #999;
+}
+
+.button:hover {background-color: #104499}
+
+button:active {
+  background-color: #104499;
+  box-shadow: 0 5px #999;
+  outline: none;
+  border: none;
+  transform: translateY(2px);
+}
+
+button:focus {outline:0;}
+
+.img {
   height: 100px;
   width: auto;
 }
@@ -41,8 +68,3 @@
  .border {
    border: 3px solid white
  }
-
- button:active {
-    outline: none;
-    border: none;
-}

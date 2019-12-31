@@ -18,10 +18,10 @@ export default class Pokemon {
           <div class="card-text">Weight: ${this.weight} lbs</div>
           `
     if (this._id) {
-      template += `<button class="btn btn-danger mt-1" onclick="app.pokemonController.releaseAsync()">Release 'Em</button>`
+      template += `<button class="button mt-1" onclick="app.pokemonController.releaseAsync()">Release 'Em</button>`
 
     } else {
-      template += `<button class="btn btn-primary mt-1" onclick="app.pokemonController.catchAsync()">Catch 'Em</button>`
+      template += `<button class="button mt-1" onclick="app.pokemonController.catchAsync()">Catch 'Em</button>`
     }
     template += `</div>
       </div>`

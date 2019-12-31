@@ -15,15 +15,13 @@
 <body class="container-fluid bg">
     <div class="row justify-content-left">
         <div class="col-1">
-            <img class="button" src="https://webstockreview.net/images/button-clipart-blue-button.png" alt="button">
+            <img class="img" src="https://webstockreview.net/images/button-clipart-blue-button.png" alt="button">
         </div>
         <div class="col-3">
-            <form onsubmit="app.pokemonController.search">
-                <div class="input-group mt-1">
-                    <input type="text" class="form-control" id="search" placeholder="search..." required />
-                </div>
+            <!-- <form onsubmit="app.pokemonController.search(), alert(name)">
+                <input type="text" class="form-control mt-1" id="name" placeholder="search..." required />
                 <button class="btn btn-primary mt-1" type="submit">submit</button>
-            </form>
+            </form> -->
         </div>
         <div class="col-4 text-center">
             <h1 class="font mt-4">Pokédex</h1>
@@ -48,13 +46,14 @@
     </div>
     <div class="row justify-content-left">
         <div class="col-3 mt-1 text-center">
-            <button class="btn btn-primary" onclick="app.pokemonController.previous()">previous</button>
-            <button class="btn btn-primary" onclick="app.pokemonController.next()">next</button>
+            <button class="button" onclick="app.pokemonController.previous()">previous</button>
+            <button class="button" onclick="app.pokemonController.next()">next</button>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
         integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

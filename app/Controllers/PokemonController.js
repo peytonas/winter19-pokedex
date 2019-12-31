@@ -58,7 +58,6 @@ export default class PokemonController {
     }
   }
   async search(name) {
-    debugger
     try {
       await PokemonService.search(name);
       _drawPokemon()
@@ -70,11 +69,36 @@ export default class PokemonController {
     PokemonService.selectCaughtPokemon(id);
   }
   async releaseAsync() {
-    try {
-      await PokemonService.releaseAsync();
-    } catch (error) {
-      console.error(error)
-    }
+    // @ts-ignore
+    const toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: false,
+    })
+    // @ts-ignore
+    Swal.fire({
+      title: 'Are you sure you want to release ' + store.State.activePokemon.name + "?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3661a7',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'No',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.value) {
+        try {
+          PokemonService.releaseAsync();
+        } catch (error) {
+          console.error(error)
+        }
+        toast.fire({
+          icon: 'success',
+          title: 'Goodbye, ' + store.State.activePokemon.name + "!"
+        })
+      }
+    })
   }
   async getMyPokemonAsync() {
     try {
@@ -84,10 +108,22 @@ export default class PokemonController {
     }
   }
   async catchAsync() {
+    // @ts-ignore
+    const toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: false,
+    })
     try {
       await PokemonService.catchAsync()
     } catch (error) {
       console.error(error)
     }
+    toast.fire({
+      icon: 'success',
+      title: 'You caught a ' + store.State.activePokemon.name + "!"
+    })
   }
 }

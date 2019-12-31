@@ -39,14 +39,12 @@ class PokemonService {
     let theActivePokemon = new Pokemon(res.data);
     store.commit("activePokemon", theActivePokemon);
     console.log(theActivePokemon);
-
   }
   async getWildPokemonAsync() {
     let res = await _pokeApi.get("?limit=13")
     store.commit("pokemon", res.data.results)
     store.commit("page", page)
   }
-
   async next() {
     page += 13
     let res = await _pokeApi.get("?limit=13&offset=" + page)
@@ -62,7 +60,6 @@ class PokemonService {
     store.commit("page", page)
   }
   async search(name) {
-    debugger
     let res = await _pokeApi.get(name)
     store.commit("pokemon", res.data.results)
   }
